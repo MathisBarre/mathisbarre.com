@@ -10,7 +10,7 @@ const IndexPageTemplate = ({ title, subtitle, social }) => {
         <h1 className="text-6xl font-primary z-10">{title}</h1>
         <h2 className="text-3xl font-secondary z-10">Coming soon</h2>
       </div>
-      <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-1/2 scale-150 z-0">
+      <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-1/2 scale-500 z-0">
         <h1 className="text-6xl font-primary text-white">{title}</h1>
         <h2 className="text-3xl font-secondary text-white text-center">Coming soon</h2>
       </div>

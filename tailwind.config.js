@@ -9,7 +9,7 @@ module.exports = {
         '1/2': '50%'
       },
       scale: {
-        '200': '2'
+        '500': '5'
       }
     },
     fontFamily: {
