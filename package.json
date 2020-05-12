@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "mathisbarre.com",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Personnal website of Mathis Barré",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -15,17 +15,18 @@
   },
   "dependencies": {
     "gatsby": "^2.21.22",
+    "gatsby-plugin-sass": "^2.3.1",
+    "gatsby-remark-relative-images": "^0.3.0",
+    "gatsby-source-filesystem": "^2.3.1",
+    "gatsby-transformer-remark": "^2.8.7",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.14.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
     "prettier": "2.0.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "browserslist": [">0.25%", "not dead"]
 }
