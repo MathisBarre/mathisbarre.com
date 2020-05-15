@@ -2,26 +2,63 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 
+import Layout from "../components/layout.js"
+import style from "./index-page.module.sass"
+
 //* DOCUMENT *//
-const IndexPageTemplate = ({ title, subtitle, social }) => {
+const IndexPageTemplate = (props) => {
   return (
     <>
-      <div className="flex justify-center items-center h-screen bg-pureWhite flex-col">
-        <h1 className="text-6xl font-primary z-10">{title}</h1>
-        <h2 className="text-3xl font-secondary z-10">Coming soon</h2>
-      </div>
-      <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-1/2 scale-500 z-0">
-        <h1 className="text-6xl font-primary text-white">{title}</h1>
-        <h2 className="text-3xl font-secondary text-white text-center">Coming soon</h2>
-      </div>
+      <Welcome {...props.welcome} />
+      <Projects {...props.projects} />
+      <Skills {...props.skills} />
+      <Contact {...props.contact} />
     </>
   )
 }
 
-IndexPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  social: PropTypes.object
+// IndexPageTemplate.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   subtitle: PropTypes.string.isRequired,
+//   social: PropTypes.object
+// }
+
+const Welcome = (props) => {
+  return (
+    <section className={style.welcome} id="welcome" style={{ backgroundImage: `url(/images/john-towner-JgOeRuGD_Y4-unsplash.webp)` }}>
+      <div className={style.welcomeWrapper}>
+        <h1 className={style.welcomeTitle}>
+          <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
+          <span className={style.welcomeSpanSubtitle}>{props.subtitle}</span>
+        </h1>
+        <div className={style.welcomeButtons}>
+          <a className={style.welcomeButtonPrimary} href="#projects">{props.buttons.primary.text}</a>
+          <a className={style.welcomeButtonSecondary} href="#contact">{props.buttons.secondary.text}</a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const Projects = (props) => {
+  return (
+    <section>
+    </section>
+  )
+}
+
+const Skills = (props) => {
+  return (
+    <section>
+    </section>
+  )
+}
+
+const Contact = (props) => {
+  return (
+    <section>
+    </section>
+  )
 }
 
 //* CONFIGURATION *//
@@ -30,9 +67,10 @@ const IndexPage = ({ data }) => {
 
   return (
     <IndexPageTemplate
-      title={fm.title}
-      subtitle={fm.subtitle}
-      social={fm.social}
+      welcome={fm.welcome}
+      projects={fm.projects}
+      skills={fm.skills}
+      contact={fm.contact}
     />
   )
 }
@@ -48,28 +86,45 @@ IndexPage.propTypes = {
 export default IndexPage
 
 export const query = graphql`
-  query IndexPage {
+  query {
     markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
       frontmatter {
         title
-        templateKey
-        subtitle
-        social {
+        contact {
           twitter {
-            link
-            label
+            url
+            text
+            isShow
           }
+          title
+          mail
           linkedin {
-            link
-            label
-          }
-          github {
-            link
-            label
+            url
+            text
+            isShow
           }
           facebook {
-            link
-            label
+            url
+            text
+            isShow
+          }
+        }
+        projects {
+          title
+        }
+        skills {
+          title
+        }
+        welcome {
+          title
+          subtitle
+          buttons {
+            secondary {
+              text
+            }
+            primary {
+              text
+            }
           }
         }
       }

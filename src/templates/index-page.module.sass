@@ -1,0 +1,72 @@
+//! NEED TO BE IN GLOBAL PARTIAL
+
+$colorPrimary: #F50057
+$colorPrimaryDark: #CC1355
+$colorWhite: #ffffff
+$colorWhiteLight: rgba(255,255,255,0.9)
+$colorBlack: #000000
+
+.button
+  min-width: 162px
+  height: 32px
+  font-size: 1.125rem
+  border-radius: 3px
+  color: inherit
+  text-decoration: none
+  text-align: center
+  padding: 5px
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  box-sizing: border-box
+  
+  &Primary
+    @extend .button
+    background-color: $colorPrimary
+
+  &Secondary
+    @extend .button
+    background-color: transparent
+    border: 1px solid $colorWhiteLight
+    color: $colorWhiteLight
+
+//! NEED TO BE IN GLOBAL PARTIAL
+
+.welcome
+  height: 100vh
+
+  display: flex
+  justify-content: center
+  align-items: center
+
+  background-attachment: fixed
+  background-position: center center
+  background-size: cover
+
+  &Wrapper
+
+  &Title
+    text-align: center
+
+  &Span
+
+    &Title
+      font-size: 4rem
+
+    &Subtitle
+      display: block
+      font-size: 3rem
+      font-weight: normal
+      margin-top: -16
+
+  &Buttons
+    display: flex
+    justify-content: center
+
+  &ButtonPrimary
+    @extend .buttonPrimary
+    margin-right: 5px
+
+  &ButtonSecondary
+    @extend .buttonSecondary
+    margin-left: 5px
