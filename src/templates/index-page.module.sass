@@ -32,6 +32,10 @@ a
     border: 1px solid $colorWhiteLight
     color: $colorWhiteLight
 
+.backgroundImage
+  background-position: center center
+  background-size: cover
+
 //! NEED TO BE IN GLOBAL PARTIAL
 
 .projectsTitle, .skillsTitle, .contactTitle
@@ -44,9 +48,9 @@ a
   display: flex
   justify-content: center
   align-items: center
+  @extend .backgroundImage
   background-attachment: fixed
-  background-position: center center
-  background-size: cover
+  background-color: $colorBlack
   &::after
     content: ""
     background-color: $colorPrimaryDark
@@ -78,12 +82,13 @@ a
 
 .projects
   background-color: $colorBlack
-  border: 1px solid black
-  padding: 42px
+  border: 1px solid $colorBlack
+  padding: 67px
   &Title
     font-size: 2rem
     text-align: center
     margin-bottom: 68px
+    margin-top: 0
 
 .project
   display: flex
@@ -116,3 +121,36 @@ a
     margin-right: 7px 
   &Text
     margin: 0
+
+.skills
+  padding: 67px
+  background-color: $colorBlack
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  position: relative
+  @extend .backgroundImage
+  &::before
+    content: ""
+    position: absolute
+    bottom: 0
+    top: 0
+    left: 0
+    right: 0
+    background: radial-gradient(circle, #0000008a 0%, rgba(0,0,0,1) 100%);
+    z-index: 1
+  &Title
+    margin-top: 0
+    font-size: 1.875rem
+    text-align: center
+    z-index: 2
+  &Row
+    margin-bottom: 7px
+    z-index: 2
+  &Logo
+    z-index: 2
+    height: 40px
+    margin-right: 24px
+    &:last-child
+      margin-right: 0

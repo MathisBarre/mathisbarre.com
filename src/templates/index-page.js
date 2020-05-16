@@ -73,7 +73,21 @@ const Project = ({ frontmatter: fm }) => {
 
 const SkillsSection = (props) => {
   return (
-    <section>
+    <section className={style.skills} id="skills" style={{ backgroundImage: "url(/images/fabian-grohs-dC6Pb2JdAqs-unsplash.jpg)"}}>
+      <h2 className={style.skillsTitle}>{props.title}</h2>
+      <div className={style.skillsRow}>
+        <img className={style.skillsLogo} src="/images/html.png" alt="logo html"/>
+        <img className={style.skillsLogo} src="/images/css.png" alt="logo css"/>
+        <img className={style.skillsLogo} src="/images/sass.png" alt="logo sass"/>
+        <img className={style.skillsLogo} src="/images/jekyll.png" alt="logo jekyll"/>
+        <img className={style.skillsLogo} src="/images/xd.png" alt="logo adobe XD"/>
+      </div>
+      <div className={style.skillsRow}>
+        <img className={style.skillsLogo} src="/images/js.png" alt="logo javascript"/>
+        <img className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
+        <img className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/>
+        <img className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
+      </div>
     </section>
   )
 }
