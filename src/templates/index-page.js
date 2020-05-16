@@ -103,10 +103,14 @@ const ContactSection = (props) => {
       <h2 className={style.contactTitle}>{props.title}</h2>
       <div className={style.contactContent}>
         <form className={style.contactForm} action="">
-          <label className={style.contactLabel} for="email" placeholder="johne@doe.com">Votre adresse e-mail</label>
-          <input className={style.contactInput} id="email" type="text"/>
-          <label className={style.contactLabel} for="message">Message</label>
-          <textarea className={style.contactTextarea} name="message" id="message"></textarea>
+          <label className={style.contactLabel}>
+            Votre adresse e-mail
+            <input className={style.contactInput} id="email" type="text" placeholder="johne@doe.com"/>
+          </label>
+          <label className={style.contactLabel}>
+            Message
+            <textarea className={style.contactTextarea} name="message" id="message"></textarea>
+          </label>
           <input className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
         </form>
         <div className={style.contactSeparator} />
