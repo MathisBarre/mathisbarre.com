@@ -94,7 +94,24 @@ const SkillsSection = (props) => {
 
 const ContactSection = (props) => {
   return (
-    <section>
+    <section className={style.contact} id="contact">
+      <h2 className={style.contactTitle}>{props.title}</h2>
+      <div className={style.contactContent}>
+        <form className={style.contactForm} action="">
+          <label className={style.contactLabel} for="email" placeholder="johne@doe.com">Votre adresse e-mail</label>
+          <input className={style.contactInput} id="email" type="text"/>
+          <label className={style.contactLabel} for="textarea">Message</label>
+          <textarea className={style.contactTextarea} name="message" id="message"></textarea>
+          <input className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
+        </form>
+        <div className={style.contactSeparator} />
+        <div className={style.contactLinks}>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.mail}><img className={style.contactLinkImg} src="/images/mail.svg" alt="mail"/>{props.mail}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.twitter.url}><img className={style.contactLinkImg} src="/images/twitter.svg" alt="twitter"/>{props.twitter.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.linkedin.url}><img className={style.contactLinkImg} src="/images/linkedin.svg" alt="linkedin"/>{props.linkedin.text}</a>
+        </div>
+      </div>
     </section>
   )
 }
