@@ -6,13 +6,15 @@ $colorWhite: #ffffff
 $colorWhiteLight: rgba(255,255,255,0.9)
 $colorBlack: #000000
 
+a
+  text-decoration: none
+  color: inherit
+
 .button
   min-width: 162px
   height: 32px
   font-size: 1.125rem
   border-radius: 3px
-  color: inherit
-  text-decoration: none
   text-align: center
   padding: 5px
   display: inline-flex
@@ -32,41 +34,85 @@ $colorBlack: #000000
 
 //! NEED TO BE IN GLOBAL PARTIAL
 
+.projectsTitle, .skillsTitle, .contactTitle
+    &::after
+      content: "."
+      color: $colorPrimary
+
 .welcome
   height: 100vh
-
   display: flex
   justify-content: center
   align-items: center
-
   background-attachment: fixed
   background-position: center center
   background-size: cover
-
-  &Wrapper
-
+  &::after
+    content: ""
+    background-color: $colorPrimaryDark
+    width: 100%
+    height: 10px
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
   &Title
     text-align: center
-
   &Span
-
     &Title
       font-size: 4rem
-
     &Subtitle
       display: block
       font-size: 3rem
       font-weight: normal
       margin-top: -16
-
   &Buttons
     display: flex
     justify-content: center
-
   &ButtonPrimary
     @extend .buttonPrimary
     margin-right: 5px
-
   &ButtonSecondary
     @extend .buttonSecondary
     margin-left: 5px
+
+.projects
+  background-color: $colorBlack
+  border: 1px solid black
+  padding: 42px
+  &Title
+    font-size: 2rem
+    text-align: center
+    margin-bottom: 68px
+
+.project
+  display: flex
+  max-width: 1000px
+  margin-left: auto
+  margin-right: auto
+  &Separator
+    margin: 28px auto
+    max-width: 1000px
+    border: 1px solid #ffffff31
+  &Separator:last-child
+    display: none;
+  &Img
+    max-width: 347px
+    border-radius: 3px
+  &Content
+    margin-left: 32px
+  &Title
+    margin: 0
+    font-size: 1.875rem
+    margin-bottom: 7px
+  &Tags
+    margin-bottom: 14px
+  &Tag
+    border: 2px solid $colorPrimary
+    border-radius: 7px
+    color: $colorPrimary
+    font-weight: bold
+    padding: 2px 4px
+    margin-right: 7px 
+  &Text
+    margin: 0

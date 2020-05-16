@@ -33,6 +33,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     posts.forEach((edge) => {
       const id = edge.node.id
+      if (!edge.node.frontmatter.templateKey) return
       createPage({
         path: edge.node.slug || edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,

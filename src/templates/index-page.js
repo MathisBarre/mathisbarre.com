@@ -9,10 +9,10 @@ import style from "./index-page.module.sass"
 const IndexPageTemplate = (props) => {
   return (
     <>
-      <Welcome {...props.welcome} />
-      <Projects {...props.projects} />
-      <Skills {...props.skills} />
-      <Contact {...props.contact} />
+      <WelcomeSection {...props.welcomeSection} />
+      <ProjectsSection {...props.projectsSection} projects={props.projects} />
+      <SkillsSection {...props.skillsSection} />
+      <ContactSection {...props.contactSection} />
     </>
   )
 }
@@ -23,7 +23,7 @@ const IndexPageTemplate = (props) => {
 //   social: PropTypes.object
 // }
 
-const Welcome = (props) => {
+const WelcomeSection = (props) => {
   return (
     <section className={style.welcome} id="welcome" style={{ backgroundImage: `url(/images/john-towner-JgOeRuGD_Y4-unsplash.webp)` }}>
       <div className={style.welcomeWrapper}>
@@ -40,21 +40,45 @@ const Welcome = (props) => {
   )
 }
 
-const Projects = (props) => {
+const ProjectsSection = (props) => {
+  return (
+    <section className={style.projects} id="projects">
+      <h2 className={style.projectsTitle}>{props.title}</h2>
+      {props.projects.map(({node: project}) => (
+        <>
+          <Project key={project.id} {...project} />
+          <hr className={style.projectSeparator} />
+        </>
+      ))}
+    </section>
+  )
+}
+
+const Project = ({ frontmatter: fm }) => {
+  return (
+    <a className={style.project} href={fm.url} target="_blank" rel="noopener noreferrer">
+      <img className={style.projectImg} src={fm.img.url} alt={fm.img.alt} />
+      <div className={style.projectContent}>
+        <h3 className={style.projectTitle}>{fm.title}</h3>
+        <div className={style.projectTags}>
+          {fm.tags.map((tag)=>(
+            <span className={style.projectTag}>{tag}</span>
+          ))}
+        </div>
+        <p className={style.projectText}>{fm.text}</p>
+      </div>
+    </a>
+  )
+}
+
+const SkillsSection = (props) => {
   return (
     <section>
     </section>
   )
 }
 
-const Skills = (props) => {
-  return (
-    <section>
-    </section>
-  )
-}
-
-const Contact = (props) => {
+const ContactSection = (props) => {
   return (
     <section>
     </section>
@@ -64,14 +88,18 @@ const Contact = (props) => {
 //* CONFIGURATION *//
 const IndexPage = ({ data }) => {
   let { frontmatter: fm } = data.markdownRemark
+  let projects = data.allMarkdownRemark.edges
 
   return (
-    <IndexPageTemplate
-      welcome={fm.welcome}
-      projects={fm.projects}
-      skills={fm.skills}
-      contact={fm.contact}
-    />
+    <Layout>
+      <IndexPageTemplate
+        welcomeSection={fm.welcome}
+        projectsSection={fm.projects}
+        projects={projects}
+        skillsSection={fm.skills}
+        contactSection={fm.contact}
+      />
+    </Layout>
   )
 }
 
@@ -125,6 +153,23 @@ export const query = graphql`
             primary {
               text
             }
+          }
+        }
+      }
+    }
+    allMarkdownRemark(filter: {frontmatter: {key: {eq: "project"}}}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            url
+            img {
+              url
+              alt
+            }
+            tags
+            text
           }
         }
       }
