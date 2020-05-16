@@ -109,7 +109,7 @@ const ContactSection = (props) => {
           </label>
           <label className={style.contactLabel}>
             Message
-            <textarea className={style.contactTextarea} name="message" id="message"></textarea>
+            <textarea className={style.contactTextarea} name="message" id="message" placeholder="Je vous contact pour..."></textarea>
           </label>
           <input className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
         </form>
