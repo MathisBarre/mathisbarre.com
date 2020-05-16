@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
 import Layout from "../components/layout.js"
 import style from "./index-page.module.sass"
@@ -9,6 +10,10 @@ import style from "./index-page.module.sass"
 const IndexPageTemplate = (props) => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Mathis Barré - Portfolio</title>
+      </Helmet>
       <WelcomeSection {...props.welcomeSection} />
       <ProjectsSection {...props.projectsSection} projects={props.projects} />
       <SkillsSection {...props.skillsSection} />
@@ -100,7 +105,7 @@ const ContactSection = (props) => {
         <form className={style.contactForm} action="">
           <label className={style.contactLabel} for="email" placeholder="johne@doe.com">Votre adresse e-mail</label>
           <input className={style.contactInput} id="email" type="text"/>
-          <label className={style.contactLabel} for="textarea">Message</label>
+          <label className={style.contactLabel} for="message">Message</label>
           <textarea className={style.contactTextarea} name="message" id="message"></textarea>
           <input className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
         </form>
