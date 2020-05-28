@@ -1,7 +1,7 @@
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
-    `This application has been updated. ` +
-      `Reload to display the latest version?`
+    `Le site internet a été mis à jour ` +
+      `Souhaitez-vous recharger la page pour voir la dernière version ?`
   )
   if (answer === true) {
     window.location.reload()
