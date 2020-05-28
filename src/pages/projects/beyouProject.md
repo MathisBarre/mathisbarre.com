@@ -1,11 +1,11 @@
 ---
 key: project
 order: 20
-title: lgbtbeyou.com
-url: https://beyou-beta.netlify.app/
+title: beyou-lgbt.fr
+url: https://beyou-lgbt.fr/
 img:
   url: "/images/beyouProject.png"
   alt: Screenshot du site beyou
-tags: ["Design", "Développement"]
-text: BeYou est une communauté active et bienveillante qui à pour objectif principale le soutient et l'accompagnement des membres. La communauté principalement active sur la platforme discord.
+tags: ["Design", "Développement", "Gatsbyjs"]
+text: BeYou est une communauté active et bienveillante qui a pour objectif principal le soutien et l'accompagnement des membres. La communauté est principalement active sur la platforme discord.
 ---
