@@ -78,9 +78,9 @@ const Project = ({ frontmatter: fm }) => {
 }
 
 const SkillsSection = (props) => {
-
   return (
     <BackgroundImage className={style.skills} id="skills" fluid={props.childImageSharp.fluid}>
+      <div className={style.skillsShadowing}></div>
       <h2 className={style.skillsTitle}>{props.title}</h2>
       <div className={style.skillsRow}>
         <img className={style.skillsLogo} src="/images/html.png" alt="logo html"/>
@@ -227,7 +227,7 @@ export const query = graphql`
     }
     skillsImg: file(relativePath: {eq: "images/fabian-grohs-dC6Pb2JdAqs-unsplash.jpg"}) {
       childImageSharp {
-        fluid(maxWidth: 1920, maxHeight: 1080, quality: 75) {
+        fluid(quality: 75) {
           ...GatsbyImageSharpFluid
         }
       }

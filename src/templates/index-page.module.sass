@@ -48,7 +48,6 @@ a
   display: flex
   justify-content: center
   align-items: center
-  @extend .backgroundImage
   background-attachment: fixed
   background-color: $colorBlack
   &::after
@@ -80,10 +79,43 @@ a
     @extend .buttonSecondary
     margin-left: 5px
 
+@media screen and ( max-width: 600px )
+  .welcome
+    min-height: 75vh
+    height: auto
+    // justify-content: flex-start
+    &Wrapper
+      padding: 0 14px
+    &Title
+      text-align: left
+    &Span
+      &Title
+        font-size: 2.8rem
+      &Subtitle
+        font-size: 1.6rem
+    &Buttons
+      flex-wrap: wrap
+      justify-content: start
+    &ButtonPrimary
+      margin-bottom: 7px
+      margin-right: 0
+      width: 100%
+    &ButtonSecondary
+      margin-left: 0
+      width: 100%
+
+@media screen and ( max-width: 430px )
+  .welcome
+    &Span
+      &Title
+        font-size: 2.4rem
+      &Subtitle
+        font-size: 1.4rem
+
 .projects
   background-color: $colorBlack
   border: 1px solid $colorBlack
-  padding: 67px
+  padding: 67px 14px
   &Title
     font-size: 2rem
     text-align: center
@@ -92,17 +124,24 @@ a
 
 .project
   display: flex
-  max-width: 1000px
+  width: 1000px
+  max-width: 100%
   margin-left: auto
   margin-right: auto
   &Separator
-    margin: 28px auto
+    margin-bottom: 28px
+    margin-top: 28px
+    margin-left: auto
+    margin-right: auto
     max-width: 1000px
     border: 1px solid #ffffff31
   &Separator:last-child
     display: none;
   &Img
     max-width: 347px
+    min-width: 347px
+    min-height: 182px
+    max-height: 182px
     border-radius: 3px
   &Content
     margin-left: 32px
@@ -111,7 +150,8 @@ a
     font-size: 1.875rem
     margin-bottom: 7px
   &Tags
-    margin-bottom: 14px
+    display: flex
+    flex-wrap: wrap
   &Tag
     border: 2px solid $colorPrimary
     border-radius: 7px
@@ -119,8 +159,24 @@ a
     font-weight: bold
     padding: 2px 4px
     margin-right: 7px 
+    margin-bottom: 14px
   &Text
     margin: 0
+
+@media screen and (max-width: 750px)
+  .project
+    flex-direction: column
+    &Content
+      margin-left: 0
+      margin-top: 14px
+    &Img
+      margin-left: auto
+      margin-right: auto
+      width: 100%
+      max-width: 100%
+      min-width: auto
+      max-height: initial
+      
 
 .skills
   padding: 67px
@@ -130,15 +186,14 @@ a
   justify-content: center
   align-items: center
   position: relative
-  @extend .backgroundImage
-  &::before
+  &Shadowing
     content: ""
     position: absolute
     bottom: 0
     top: 0
     left: 0
     right: 0
-    background: radial-gradient(circle, #0000008a 0%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, #0000008c 0%, #000000 100%);
     z-index: 1
   &Title
     margin-top: 0
@@ -146,14 +201,15 @@ a
     text-align: center
     z-index: 2
   &Row
-    margin-bottom: 7px
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
     z-index: 2
   &Logo
+    margin-bottom: 14px!important
     z-index: 2
     height: 40px
-    margin-right: 24px
-    &:last-child
-      margin-right: 0
+    margin: 0 12px
 
 .contact
   background-color: $colorPrimaryDark
@@ -192,9 +248,16 @@ a
   &Links
     flex: 1
     padding-top: 22px
+    white-space: pre-wrap
+    text-overflow: ellipsis
   &Link
     display: flex
     align-items: center
     margin-bottom: 7px
     &Img
       margin-right: 7px
+
+@media screen and (max-width: 750px)
+  .contact
+    &Content
+      flex-direction: column
