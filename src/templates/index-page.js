@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet"
 
 import Layout from "../components/layout.js"
 import style from "./index-page.module.sass"
+import BackgroundImage from "gatsby-background-image"
 
 //* DOCUMENT *//
 const IndexPageTemplate = (props) => {
@@ -30,7 +31,7 @@ const IndexPageTemplate = (props) => {
 
 const WelcomeSection = (props) => {
   return (
-    <section className={style.welcome} id="welcome" style={{ backgroundImage: `url(/images/john-towner-JgOeRuGD_Y4-unsplash.webp)` }}>
+    <BackgroundImage tag={`section`} className={style.welcome} id="welcome" fluid={props.childImageSharp.fluid}>
       <div className={style.welcomeWrapper}>
         <h1 className={style.welcomeTitle}>
           <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
@@ -41,7 +42,7 @@ const WelcomeSection = (props) => {
           <a className={style.welcomeButtonSecondary} href="#contact">{props.buttons.secondary.text}</a>
         </div>
       </div>
-    </section>
+    </BackgroundImage>
   )
 }
 
@@ -77,8 +78,9 @@ const Project = ({ frontmatter: fm }) => {
 }
 
 const SkillsSection = (props) => {
+
   return (
-    <section className={style.skills} id="skills" style={{ backgroundImage: "url(/images/fabian-grohs-dC6Pb2JdAqs-unsplash.jpg)"}}>
+    <BackgroundImage className={style.skills} id="skills" fluid={props.childImageSharp.fluid}>
       <h2 className={style.skillsTitle}>{props.title}</h2>
       <div className={style.skillsRow}>
         <img className={style.skillsLogo} src="/images/html.png" alt="logo html"/>
@@ -93,7 +95,7 @@ const SkillsSection = (props) => {
         <img className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/>
         <img className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
       </div>
-    </section>
+    </BackgroundImage>
   )
 }
 
@@ -102,14 +104,14 @@ const ContactSection = (props) => {
     <section className={style.contact} id="contact">
       <h2 className={style.contactTitle}>{props.title}</h2>
       <div className={style.contactContent}>
-        <form className={style.contactForm} action="">
+        <form className={style.contactForm} name="contact" netlify>
           <label className={style.contactLabel}>
             Votre adresse e-mail
-            <input className={style.contactInput} id="email" type="text" placeholder="johne@doe.com"/>
+            <input className={style.contactInput} name="email" id="email" type="text" required />
           </label>
           <label className={style.contactLabel}>
             Message
-            <textarea className={style.contactTextarea} name="message" id="message" placeholder="Je vous contact pour..."></textarea>
+            <textarea className={style.contactTextarea} name="message" id="message" required ></textarea>
           </label>
           <input className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
         </form>
@@ -132,11 +134,12 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+    {console.log(data)}
       <IndexPageTemplate
-        welcomeSection={fm.welcome}
+        welcomeSection={{...fm.welcome, ...data.welcomeImg}}
         projectsSection={fm.projects}
         projects={projects}
-        skillsSection={fm.skills}
+        skillsSection={{...fm.skills, ...data.skillsImg}}
         contactSection={fm.contact}
       />
     </Layout>
@@ -197,7 +200,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(filter: {frontmatter: {key: {eq: "project"}}}) {
+    allMarkdownRemark(filter: {frontmatter: {key: {eq: "project"}}}, sort: {fields: frontmatter___order, order: ASC}) {
       edges {
         node {
           id
@@ -211,6 +214,20 @@ export const query = graphql`
             tags
             text
           }
+        }
+      }
+    }
+    welcomeImg: file(relativePath: {eq: "images/john-towner-JgOeRuGD_Y4-unsplash.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 1920, maxHeight: 1080, quality: 75) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    skillsImg: file(relativePath: {eq: "images/fabian-grohs-dC6Pb2JdAqs-unsplash.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 1920, maxHeight: 1080, quality: 75) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

@@ -1,6 +1,7 @@
 ---
 key: project
 
+order: 30
 title: grezilleloisirs.org
 url: https://grezilleloisirs.org/
 img:

@@ -1,6 +1,6 @@
 ---
 key: project
-
+order: 20
 title: lgbtbeyou.com
 url: https://beyou-beta.netlify.app/
 img:

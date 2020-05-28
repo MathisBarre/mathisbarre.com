@@ -1,4 +1,9 @@
 module.exports = {
+  // siteMetadata: {
+  //   title: "Mathis Barré",
+  //   description: "Portfolio du développeur web freelace Mathis Barré",
+  //   baseurl: "https://mathisbarre.com",
+  // },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -15,6 +20,8 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     `gatsby-remark-relative-images`,
     `gatsby-transformer-remark`,
     {
