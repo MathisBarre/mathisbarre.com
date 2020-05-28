@@ -104,7 +104,8 @@ const ContactSection = (props) => {
     <section className={style.contact} id="contact">
       <h2 className={style.contactTitle}>{props.title}</h2>
       <div className={style.contactContent}>
-        <form className={style.contactForm} name="contact" netlify>
+        <form className={style.contactForm} name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <label className={style.contactLabel}>
             Votre adresse e-mail
             <input className={style.contactInput} name="email" id="email" type="text" required />
