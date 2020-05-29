@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Mathis Barré",
-    description: "Portfolio du développeur web freelace Mathis Barré",
+    description: "Portfolio du développeur web freelance Mathis Barré",
     author: "Mathis Barré",
     baseurl: "https://mathisbarre.com",
   },
