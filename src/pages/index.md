@@ -31,4 +31,8 @@ contact:
     text: "Mathis Barré"
     url: "https://www.linkedin.com/in/mathis-barr%C3%A9-b9ab07176/"
     isShow: true
+  github:
+    text: "MathisBarre"
+    url: "https://github.com/MathisBarre"
+    isShow: true
 ---

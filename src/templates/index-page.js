@@ -119,8 +119,9 @@ const ContactSection = (props) => {
         <div className={style.contactSeparator} />
         <div className={style.contactLinks}>
           <a className={style.contactLink} rel="noopener noreferrer" href={props.mail}><img className={style.contactLinkImg} src="/images/mail.svg" alt="mail"/>{props.mail}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.github.url}><img className={style.contactLinkImg} src="/images/github.svg" alt="github"/>{props.github.text}</a>
           <a className={style.contactLink} rel="noopener noreferrer" href={props.twitter.url}><img className={style.contactLinkImg} src="/images/twitter.svg" alt="twitter"/>{props.twitter.text}</a>
-          {/* <a className={style.contactLink} rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a> */}
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a>
           <a className={style.contactLink} rel="noopener noreferrer" href={props.linkedin.url}><img className={style.contactLinkImg} src="/images/linkedin.svg" alt="linkedin"/>{props.linkedin.text}</a>
         </div>
       </div>
@@ -175,6 +176,11 @@ export const query = graphql`
             isShow
           }
           facebook {
+            url
+            text
+            isShow
+          }
+          github {
             url
             text
             isShow
