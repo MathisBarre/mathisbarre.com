@@ -29,6 +29,7 @@ const IndexPageTemplate = (props) => {
 const WelcomeSection = (props) => {
   return (
     <BackgroundImage tag={`section`} className={style.welcome} id="welcome" fluid={props.childImageSharp.fluid}>
+      <img src="/images/preview.jpg" alt="" className={style.hiddenImg}/>
       <div className={style.welcomeWrapper}>
         <h1 className={style.welcomeTitle}>
           <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
