@@ -1,9 +1,10 @@
 module.exports = {
-  // siteMetadata: {
-  //   title: "Mathis Barré",
-  //   description: "Portfolio du développeur web freelace Mathis Barré",
-  //   baseurl: "https://mathisbarre.com",
-  // },
+  siteMetadata: {
+    title: "Mathis Barré",
+    description: "Portfolio du développeur web freelace Mathis Barré",
+    author: "Mathis Barré",
+    baseurl: "https://mathisbarre.com",
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import { Helmet } from "react-helmet"
+import SEO from "../components/seo"
 
 import Layout from "../components/layout.js"
 import style from "./index-page.module.sass"
@@ -11,10 +11,7 @@ import BackgroundImage from "gatsby-background-image"
 const IndexPageTemplate = (props) => {
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Mathis Barré - Portfolio</title>
-      </Helmet>
+      <SEO title="Portfolio"/>
       <WelcomeSection {...props.welcomeSection} />
       <ProjectsSection {...props.projectsSection} projects={props.projects} />
       <SkillsSection {...props.skillsSection} />
