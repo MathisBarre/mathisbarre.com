@@ -46,7 +46,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `https://mathisbarre.com/images/preview.jpg`,
+          content: 'https://mathisbarre.com/images/john-towner-JgOeRuGD_Y4-unsplash.jpg',
         },
         {
           name: `twitter:card`,
