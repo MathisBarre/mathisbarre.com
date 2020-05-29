@@ -45,6 +45,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `https://mathisbarre.com/images/preview.jpg`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
