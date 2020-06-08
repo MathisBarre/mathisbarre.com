@@ -115,7 +115,7 @@ const ContactSection = (props) => {
             Message
             <textarea className={style.contactTextarea} name="message" id="message" required ></textarea>
           </label>
-          <input  data-aos="fade-right" className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
+          <input data-aos="fade-right" className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
         </form>
         <div className={style.contactSeparator} />
         <div className={style.contactLinks}>
