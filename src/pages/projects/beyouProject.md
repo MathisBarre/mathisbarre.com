@@ -1,7 +1,7 @@
 ---
 key: project
 order: 20
-title: beyou-lgbt.fr
+title: BeYou
 url: https://beyou-lgbt.fr/
 img:
   url: "/images/beyouProject.png"

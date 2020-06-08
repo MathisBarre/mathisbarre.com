@@ -2,7 +2,7 @@
 key: project
 
 order: 30
-title: grezilleloisirs.org
+title: Grézillé Loisirs
 url: https://grezilleloisirs.org/
 img:
   url: "/images/grezilleloisirsProject.png"

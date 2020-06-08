@@ -1,11 +1,12 @@
-import React from "react"
+import React, {useEffect} from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import SEO from "../components/seo"
 
+import SEO from "../components/seo"
 import Layout from "../components/layout.js"
 import style from "./index-page.module.sass"
 import BackgroundImage from "gatsby-background-image"
+
 
 //* DOCUMENT *//
 const IndexPageTemplate = (props) => {
@@ -20,15 +21,10 @@ const IndexPageTemplate = (props) => {
   )
 }
 
-// IndexPageTemplate.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   subtitle: PropTypes.string.isRequired,
-//   social: PropTypes.object
-// }
-
 const WelcomeSection = (props) => {
   return (
     <BackgroundImage tag={`section`} className={style.welcome} id="welcome" fluid={props.childImageSharp.fluid}>
+      <div className={style.welcomeTopbar} />
       <img src="/images/preview.jpg" alt="" className={style.hiddenImg}/>
       <div className={style.welcomeWrapper}>
         <h1 className={style.welcomeTitle}>

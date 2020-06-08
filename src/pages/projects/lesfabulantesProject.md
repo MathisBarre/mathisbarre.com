@@ -1,7 +1,7 @@
 ---
 key: project
 order: 1
-title: lesfabulantes.org
+title: Les Fabulantes
 url: https://lesfabulantes.netlify.app/
 img:
   url: "/images/lesfabulantesProject.png"

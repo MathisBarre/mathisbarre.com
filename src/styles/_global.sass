@@ -1,13 +1,33 @@
+//! NEED TO BE IN GLOBAL PARTIAL
+
 $colorPrimary: #F50057
 $colorPrimaryDark: #CC1355
 $colorWhite: #ffffff
 $colorWhiteLight: rgba(255,255,255,0.9)
 $colorBlack: #000000
 
-.buttons
+a
+  text-decoration: none
+  color: inherit
+
+.button
   min-width: 162px
   height: 32px
   font-size: 1.125rem
-  
+  border-radius: 3px
+  text-align: center
+  padding: 5px
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  box-sizing: border-box
   &Primary
-    background-color: 
+    @extend .button
+    background-color: $colorPrimary
+  &Secondary
+    @extend .button
+    background-color: transparent
+    border: 1px solid $colorWhiteLight
+    color: $colorWhiteLight
+
+//! NEED TO BE IN GLOBAL PARTIAL

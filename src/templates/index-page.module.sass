@@ -1,42 +1,4 @@
-//! NEED TO BE IN GLOBAL PARTIAL
-
-$colorPrimary: #F50057
-$colorPrimaryDark: #CC1355
-$colorWhite: #ffffff
-$colorWhiteLight: rgba(255,255,255,0.9)
-$colorBlack: #000000
-
-a
-  text-decoration: none
-  color: inherit
-
-.button
-  min-width: 162px
-  height: 32px
-  font-size: 1.125rem
-  border-radius: 3px
-  text-align: center
-  padding: 5px
-  display: inline-flex
-  justify-content: center
-  align-items: center
-  box-sizing: border-box
-  
-  &Primary
-    @extend .button
-    background-color: $colorPrimary
-
-  &Secondary
-    @extend .button
-    background-color: transparent
-    border: 1px solid $colorWhiteLight
-    color: $colorWhiteLight
-
-.backgroundImage
-  background-position: center center
-  background-size: cover
-
-//! NEED TO BE IN GLOBAL PARTIAL
+@import "../styles/_global"
 
 .hiddenImg
   height: 1px
@@ -53,7 +15,7 @@ a
   align-items: center
   background-attachment: fixed
   background-color: $colorBlack
-  &::after
+  &Topbar
     content: ""
     background-color: $colorPrimaryDark
     width: 100%
@@ -231,7 +193,7 @@ a
     flex: 1
   &Label
     margin-bottom: 3.5px
-    font-weight: 500
+    font-weight: 600
     display: flex
     flex-direction: column
   &Input, &Textarea, &Submit
