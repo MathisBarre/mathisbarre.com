@@ -1,15 +1,22 @@
 import React, {useEffect} from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import SEO from "../components/seo"
 import Layout from "../components/layout.js"
 import style from "./index-page.module.sass"
 import BackgroundImage from "gatsby-background-image"
 
-
 //* DOCUMENT *//
 const IndexPageTemplate = (props) => {
+  useEffect(()=>{
+    AOS.init({
+      duration : 750,
+      once: true
+    })
+  })
   return (
     <>
       <SEO title="Portfolio"/>
@@ -26,8 +33,8 @@ const WelcomeSection = (props) => {
     <BackgroundImage tag={`section`} className={style.welcome} id="welcome" fluid={props.childImageSharp.fluid}>
       <div className={style.welcomeTopbar} />
       <img src="/images/preview.jpg" alt="" className={style.hiddenImg}/>
-      <div className={style.welcomeWrapper}>
-        <h1 className={style.welcomeTitle}>
+      <div  data-aos="fade-zoom-in" className={style.welcomeWrapper}>
+        <h1  className={style.welcomeTitle}>
           <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
           <span className={style.welcomeSpanSubtitle}>{props.subtitle}</span>
         </h1>
@@ -47,7 +54,7 @@ const ProjectsSection = (props) => {
       {props.projects.map(({node: project}) => (
         <>
           <Project key={project.id} {...project} />
-          <hr className={style.projectSeparator} />
+          <hr   data-aos="fade" className={style.projectSeparator}/>
         </>
       ))}
     </section>
@@ -56,7 +63,7 @@ const ProjectsSection = (props) => {
 
 const Project = ({ frontmatter: fm }) => {
   return (
-    <a className={style.project} href={fm.url} target="_blank" rel="noopener noreferrer">
+    <a className={style.project} href={fm.url} target="_blank" rel="noopener noreferrer"  data-aos="fade-up">
       <img className={style.projectImg} src={fm.img.url} alt={fm.img.alt} />
       <div className={style.projectContent}>
         <h3 className={style.projectTitle}>{fm.title}</h3>
@@ -77,17 +84,17 @@ const SkillsSection = (props) => {
       <div className={style.skillsShadowing}></div>
       <h2 className={style.skillsTitle}>{props.title}</h2>
       <div className={style.skillsRow}>
-        <img className={style.skillsLogo} src="/images/html.png" alt="logo html"/>
-        <img className={style.skillsLogo} src="/images/css.png" alt="logo css"/>
-        <img className={style.skillsLogo} src="/images/sass.png" alt="logo sass"/>
-        <img className={style.skillsLogo} src="/images/jekyll.png" alt="logo jekyll"/>
-        <img className={style.skillsLogo} src="/images/xd.png" alt="logo adobe XD"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/html.png" alt="logo html"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/css.png" alt="logo css"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/sass.png" alt="logo sass"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/jekyll.png" alt="logo jekyll"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/xd.png" alt="logo adobe XD"/>
       </div>
       <div className={style.skillsRow}>
-        <img className={style.skillsLogo} src="/images/js.png" alt="logo javascript"/>
-        <img className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
-        <img className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/>
-        <img className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/js.png" alt="logo javascript"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/>
+        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
       </div>
     </BackgroundImage>
   )
@@ -100,23 +107,23 @@ const ContactSection = (props) => {
       <div className={style.contactContent}>
         <form className={style.contactForm} name="contact" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="contact" />
-          <label className={style.contactLabel}>
+          <label  data-aos="fade-right" className={style.contactLabel}>
             Votre adresse e-mail
             <input className={style.contactInput} name="email" id="email" type="text" required />
           </label>
-          <label className={style.contactLabel}>
+          <label  data-aos="fade-right" className={style.contactLabel}>
             Message
             <textarea className={style.contactTextarea} name="message" id="message" required ></textarea>
           </label>
-          <input className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
+          <input  data-aos="fade-right" className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
         </form>
         <div className={style.contactSeparator} />
         <div className={style.contactLinks}>
-          <a className={style.contactLink} rel="noopener noreferrer" href={props.mail}><img className={style.contactLinkImg} src="/images/mail.svg" alt="mail"/>{props.mail}</a>
-          <a className={style.contactLink} rel="noopener noreferrer" href={props.github.url}><img className={style.contactLinkImg} src="/images/github.svg" alt="github"/>{props.github.text}</a>
-          <a className={style.contactLink} rel="noopener noreferrer" href={props.twitter.url}><img className={style.contactLinkImg} src="/images/twitter.svg" alt="twitter"/>{props.twitter.text}</a>
-          <a className={style.contactLink} rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a>
-          <a className={style.contactLink} rel="noopener noreferrer" href={props.linkedin.url}><img className={style.contactLinkImg} src="/images/linkedin.svg" alt="linkedin"/>{props.linkedin.text}</a>
+          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.mail}><img className={style.contactLinkImg} src="/images/mail.svg" alt="mail"/>{props.mail}</a>
+          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.github.url}><img className={style.contactLinkImg} src="/images/github.svg" alt="github"/>{props.github.text}</a>
+          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.twitter.url}><img className={style.contactLinkImg} src="/images/twitter.svg" alt="twitter"/>{props.twitter.text}</a>
+          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a>
+          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.linkedin.url}><img className={style.contactLinkImg} src="/images/linkedin.svg" alt="linkedin"/>{props.linkedin.text}</a>
         </div>
       </div>
     </section>
