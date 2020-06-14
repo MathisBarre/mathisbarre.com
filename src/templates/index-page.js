@@ -1,22 +1,15 @@
 import React, {useEffect} from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import BackgroundImage from "gatsby-background-image"
+import { gsap } from "gsap"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout.js"
 import style from "./index-page.module.sass"
-import BackgroundImage from "gatsby-background-image"
 
 //* DOCUMENT *//
 const IndexPageTemplate = (props) => {
-  useEffect(()=>{
-    AOS.init({
-      duration : 750,
-      once: true
-    })
-  })
   return (
     <>
       <SEO title="Portfolio"/>
@@ -29,12 +22,31 @@ const IndexPageTemplate = (props) => {
 }
 
 const WelcomeSection = (props) => {
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //     tl
+  //       .from(
+  //         `.${style.welcomeSpanTitle}`,
+  //         {
+  //           duration: 0.5,
+  //           opacity: 0
+  //         }
+  //       )
+  //       .from(
+  //         `.${style.welcomeSpanSubtitle}`,
+  //         {
+  //           duration: 0.5,
+  //           opacity: 0
+  //         }
+  //       )
+  // }, [])
   return (
     <BackgroundImage tag={`section`} className={style.welcome} id="welcome" fluid={props.childImageSharp.fluid}>
       <div className={style.welcomeTopbar} />
       <img src="/images/preview.jpg" alt="" className={style.hiddenImg}/>
-      <div  data-aos="fade-zoom-in" className={style.welcomeWrapper}>
-        <h1  className={style.welcomeTitle}>
+      <div className={style.welcomeWrapper}>
+        <h1 className={style.welcomeTitle}>
+          {console.log(style.welcomeSpanTitle)}
           <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
           <span className={style.welcomeSpanSubtitle}>{props.subtitle}</span>
         </h1>
@@ -48,13 +60,14 @@ const WelcomeSection = (props) => {
 }
 
 const ProjectsSection = (props) => {
+  
   return (
     <section className={style.projects} id="projects">
       <h2 className={style.projectsTitle}>{props.title}</h2>
       {props.projects.map(({node: project}) => (
         <>
           <Project key={project.id} {...project} />
-          <hr   data-aos="fade" className={style.projectSeparator}/>
+          <hr    className={style.projectSeparator}/>
         </>
       ))}
     </section>
@@ -63,7 +76,7 @@ const ProjectsSection = (props) => {
 
 const Project = ({ frontmatter: fm }) => {
   return (
-    <a className={style.project} href={fm.url} target="_blank" rel="noopener noreferrer"  data-aos="fade-up">
+    <a className={style.project} href={fm.url} target="_blank" rel="noopener noreferrer"  >
       <img className={style.projectImg} src={fm.img.url} alt={fm.img.alt} />
       <div className={style.projectContent}>
         <h3 className={style.projectTitle}>{fm.title}</h3>
@@ -84,17 +97,17 @@ const SkillsSection = (props) => {
       <div className={style.skillsShadowing}></div>
       <h2 className={style.skillsTitle}>{props.title}</h2>
       <div className={style.skillsRow}>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/html.png" alt="logo html"/>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/css.png" alt="logo css"/>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/sass.png" alt="logo sass"/>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/jekyll.png" alt="logo jekyll"/>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/xd.png" alt="logo adobe XD"/>
+        <img className={style.skillsLogo} src="/images/html.png" alt="logo html"/>
+        <img className={style.skillsLogo} src="/images/css.png" alt="logo css"/>
+        <img className={style.skillsLogo} src="/images/sass.png" alt="logo sass"/>
+        <img className={style.skillsLogo} src="/images/jekyll.png" alt="logo jekyll"/>
+        <img className={style.skillsLogo} src="/images/xd.png" alt="logo adobe XD"/>
       </div>
       <div className={style.skillsRow}>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/js.png" alt="logo javascript"/>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/>
-        <img  data-aos="fade-in" className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
+        <img className={style.skillsLogo} src="/images/js.png" alt="logo javascript"/>
+        <img className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
+        <img className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/>
+        <img className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
       </div>
     </BackgroundImage>
   )
