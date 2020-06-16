@@ -27,7 +27,7 @@ const IndexPageTemplate = (props) => {
         scrollTrigger: `.${style.project}`,
         stagger: 0.2,
         x:500,
-        opacity:0
+        opacity:0.5
       }
     )
 
@@ -36,7 +36,7 @@ const IndexPageTemplate = (props) => {
     {
       scrollTrigger: `.${style.skillsLogo}`,
       stagger: 0.1,
-      opacity:0
+      opacity:0.5
     }
   )
     
@@ -47,7 +47,7 @@ const IndexPageTemplate = (props) => {
       scrollTrigger: ".animated-form-elt",
       stagger: 0.1,
       x:-500,
-      opacity:0
+      opacity:0.5
     }
     )
 
@@ -60,17 +60,19 @@ const IndexPageTemplate = (props) => {
         },
         stagger: 0.1,
         x:500,
-        opacity:0
+        opacity:0.5
       }
     )
   }, [])
   return (
     <>
-      <SEO title="Portfolio"/>
-      <WelcomeSection {...props.welcomeSection} />
-      <ProjectsSection {...props.projectsSection} projects={props.projects} />
-      <SkillsSection {...props.skillsSection} />
-      <ContactSection {...props.contactSection} />
+      <div className={style.noOverflow}>
+        <SEO title="Portfolio"/>
+        <WelcomeSection {...props.welcomeSection} />
+        <ProjectsSection {...props.projectsSection} projects={props.projects} />
+        <SkillsSection {...props.skillsSection} />
+        <ContactSection {...props.contactSection} />
+      </div>
     </>
   )
 }
