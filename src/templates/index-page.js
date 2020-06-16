@@ -42,20 +42,24 @@ const IndexPageTemplate = (props) => {
     
 
     // Contact animation
-    gsap.from( `.${style.contactLink}`,
-      {
-        scrollTrigger: `.${style.contactLink}`,
-        stagger: 0.1,
-        x:500,
-        opacity:0
-      }
+    gsap.from( ".animated-form-elt",
+    {
+      scrollTrigger: ".animated-form-elt",
+      stagger: 0.1,
+      x:-500,
+      opacity:0
+    }
     )
 
-    gsap.from( ".animated-form-elt",
+    gsap.from( `.${style.contactLink}`,
       {
-        scrollTrigger:".animated-form-elt",
+        scrollTrigger: {
+          trigger:`.${style.contactLink}`,
+          start:"top bottom",
+          // markers:true
+        },
         stagger: 0.1,
-        x:-500,
+        x:500,
         opacity:0
       }
     )
@@ -266,14 +270,14 @@ export const query = graphql`
     }
     welcomeImg: file(relativePath: {eq: "images/john-towner-JgOeRuGD_Y4-unsplash.jpg"}) {
       childImageSharp {
-        fluid(maxWidth: 1920, maxHeight: 1080, quality: 75) {
+        fluid(quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     skillsImg: file(relativePath: {eq: "images/fabian-grohs-dC6Pb2JdAqs-unsplash.jpg"}) {
       childImageSharp {
-        fluid(quality: 75) {
+        fluid(quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
