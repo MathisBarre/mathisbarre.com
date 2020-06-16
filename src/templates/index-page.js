@@ -137,7 +137,7 @@ const SkillsSection = (props) => {
       <div className={style.skillsRow}>
         <img className={style.skillsLogo} src="/images/js.png" alt="logo javascript"/>
         <img className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
-        <img className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/>
+        {/* <img className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/> */}
         <img className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
       </div>
     </BackgroundImage>
@@ -155,7 +155,7 @@ const ContactSection = (props) => {
           <input    className={`animated-form-elt ${style.contactInput}`}    name="email"      id="email"   type="text" required aria-labelledby="emailLabel"/>
           <label    className={`animated-form-elt ${style.contactLabel}`}    htmlFor="message" id="labelMessage">Message</label>
           <textarea className={`animated-form-elt ${style.contactTextarea}`} name="message"    id="message" required aria-labelledby="messageLabel" ></textarea>
-          <input    className={`animated-form-elt ${style.contactSubmit}`}   type="submit"     value="Envoyer le formulaire" aria-label="Envoyer le formulaire"/>
+          <input    className={`animated-form-elt ${style.contactSubmit}`}   type="submit"     value="Envoyer" aria-label="Envoyer"/>
         </form>
         <div className={style.contactSeparator} />
         <div className={style.contactLinks}>
