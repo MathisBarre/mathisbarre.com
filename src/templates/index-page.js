@@ -2,14 +2,64 @@ import React, {useEffect} from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import { gsap } from "gsap"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout.js"
 import style from "./index-page.module.sass"
 
+// GreenShock
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 //* DOCUMENT *//
 const IndexPageTemplate = (props) => {
+  useEffect(() => {
+
+    ScrollTrigger.defaults({
+      start:"top 80%",
+      toggleActions:"play null play null"
+    })
+
+    // Project animation
+    gsap.from( `.${style.project}`, 
+      {
+        scrollTrigger: `.${style.project}`,
+        stagger: 0.2,
+        x:500,
+        opacity:0
+      }
+    )
+
+    // Skills animation
+    gsap.from( `.${style.skillsLogo}`, 
+    {
+      scrollTrigger: `.${style.skillsLogo}`,
+      stagger: 0.1,
+      opacity:0
+    }
+  )
+    
+
+    // Contact animation
+    gsap.from( `.${style.contactLink}`,
+      {
+        scrollTrigger: `.${style.contactLink}`,
+        stagger: 0.1,
+        x:500,
+        opacity:0
+      }
+    )
+
+    gsap.from( ".animated-form-elt",
+      {
+        scrollTrigger:".animated-form-elt",
+        stagger: 0.1,
+        x:-500,
+        opacity:0
+      }
+    )
+  }, [])
   return (
     <>
       <SEO title="Portfolio"/>
@@ -22,31 +72,12 @@ const IndexPageTemplate = (props) => {
 }
 
 const WelcomeSection = (props) => {
-  // useEffect(() => {
-  //   const tl = gsap.timeline()
-  //     tl
-  //       .from(
-  //         `.${style.welcomeSpanTitle}`,
-  //         {
-  //           duration: 0.5,
-  //           opacity: 0
-  //         }
-  //       )
-  //       .from(
-  //         `.${style.welcomeSpanSubtitle}`,
-  //         {
-  //           duration: 0.5,
-  //           opacity: 0
-  //         }
-  //       )
-  // }, [])
   return (
     <BackgroundImage tag={`section`} className={style.welcome} id="welcome" fluid={props.childImageSharp.fluid}>
       <div className={style.welcomeTopbar} />
       <img src="/images/preview.jpg" alt="" className={style.hiddenImg}/>
       <div className={style.welcomeWrapper}>
         <h1 className={style.welcomeTitle}>
-          {console.log(style.welcomeSpanTitle)}
           <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
           <span className={style.welcomeSpanSubtitle}>{props.subtitle}</span>
         </h1>
@@ -65,10 +96,10 @@ const ProjectsSection = (props) => {
     <section className={style.projects} id="projects">
       <h2 className={style.projectsTitle}>{props.title}</h2>
       {props.projects.map(({node: project}) => (
-        <>
-          <Project key={project.id} {...project} />
-          <hr    className={style.projectSeparator}/>
-        </>
+        <div key={project.id} className={style.projectWrapper}>
+          <Project {...project} />
+          <hr className={style.projectSeparator}/>
+        </div>
       ))}
     </section>
   )
@@ -82,7 +113,7 @@ const Project = ({ frontmatter: fm }) => {
         <h3 className={style.projectTitle}>{fm.title}</h3>
         <div className={style.projectTags}>
           {fm.tags.map((tag)=>(
-            <span className={style.projectTag}>{tag}</span>
+            <span key={tag} className={style.projectTag}>{tag}</span>
           ))}
         </div>
         <p className={style.projectText}>{fm.text}</p>
@@ -119,24 +150,20 @@ const ContactSection = (props) => {
       <h2 className={style.contactTitle}>{props.title}</h2>
       <div className={style.contactContent}>
         <form className={style.contactForm} name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact" />
-          <label  data-aos="fade-right" className={style.contactLabel}>
-            Votre adresse e-mail
-            <input className={style.contactInput} name="email" id="email" type="text" required />
-          </label>
-          <label  data-aos="fade-right" className={style.contactLabel}>
-            Message
-            <textarea className={style.contactTextarea} name="message" id="message" required ></textarea>
-          </label>
-          <input data-aos="fade-right" className={style.contactSubmit} type="submit" value="Envoyer le formulaire"/>
+          <input type="hidden" name="form-name" value="contact" aria-label="hidden label" />
+          <label    className={`animated-form-elt ${style.contactLabel}`}    htmlFor="email"   id="emailLabel">Votre adresse e-mail</label>
+          <input    className={`animated-form-elt ${style.contactInput}`}    name="email"      id="email"   type="text" required aria-labelledby="emailLabel"/>
+          <label    className={`animated-form-elt ${style.contactLabel}`}    htmlFor="message" id="labelMessage">Message</label>
+          <textarea className={`animated-form-elt ${style.contactTextarea}`} name="message"    id="message" required aria-labelledby="messageLabel" ></textarea>
+          <input    className={`animated-form-elt ${style.contactSubmit}`}   type="submit"     value="Envoyer le formulaire" aria-label="Envoyer le formulaire"/>
         </form>
         <div className={style.contactSeparator} />
         <div className={style.contactLinks}>
-          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={`mailto:${props.mail}`}><img className={style.contactLinkImg} src="/images/mail.svg" alt="mail"/>{props.mail}</a>
-          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.github.url}><img className={style.contactLinkImg} src="/images/github.svg" alt="github"/>{props.github.text}</a>
-          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.twitter.url}><img className={style.contactLinkImg} src="/images/twitter.svg" alt="twitter"/>{props.twitter.text}</a>
-          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a>
-          <a className={style.contactLink}  data-aos="fade-left" rel="noopener noreferrer" href={props.linkedin.url}><img className={style.contactLinkImg} src="/images/linkedin.svg" alt="linkedin"/>{props.linkedin.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={`mailto:${props.mail}`}><img className={style.contactLinkImg} src="/images/mail.svg" alt="mail"/>{props.mail}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.github.url}><img className={style.contactLinkImg} src="/images/github.svg" alt="github"/>{props.github.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.twitter.url}><img className={style.contactLinkImg} src="/images/twitter.svg" alt="twitter"/>{props.twitter.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.linkedin.url}><img className={style.contactLinkImg} src="/images/linkedin.svg" alt="linkedin"/>{props.linkedin.text}</a>
         </div>
       </div>
     </section>
