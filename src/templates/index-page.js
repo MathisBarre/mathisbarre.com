@@ -27,7 +27,7 @@ const IndexPageTemplate = (props) => {
         scrollTrigger: `.${style.project}`,
         stagger: 0.2,
         x:500,
-        opacity:0.5
+        opacity:0
       }
     )
 
@@ -36,7 +36,7 @@ const IndexPageTemplate = (props) => {
     {
       scrollTrigger: `.${style.skillsLogo}`,
       stagger: 0.1,
-      opacity:0.5
+      opacity:0
     }
   )
     
@@ -47,7 +47,7 @@ const IndexPageTemplate = (props) => {
       scrollTrigger: ".animated-form-elt",
       stagger: 0.1,
       x:-500,
-      opacity:0.5
+      opacity:0
     }
     )
 
@@ -60,7 +60,7 @@ const IndexPageTemplate = (props) => {
         },
         stagger: 0.1,
         x:500,
-        opacity:0.5
+        opacity:0
       }
     )
   }, [])
