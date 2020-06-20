@@ -29,19 +29,29 @@
     top: 0
     left: 0
     right: 0
+  &Wrapper
+    display: flex
+    align-items: center
+    padding: 0 14px
+  &ProfilPic
+    height: 158px
+    width: 158px
+    border-radius: 100%
+    margin-right: 28px
   &Title
-    text-align: center
+    margin: 0
+    margin-top: -12px
   &Span
     &Title
-      font-size: 4rem
+      font-size: 3.688rem
     &Subtitle
       display: block
-      font-size: 3rem
+      font-size: 2.75rem
       font-weight: normal
       margin-top: -16
   &Buttons
-    display: flex
-    justify-content: center
+    margin-top: 14px
+    margin-left: 3px
   &ButtonPrimary
     @extend .buttonPrimary
     margin-right: 5px
@@ -54,8 +64,8 @@
     min-height: 75vh
     height: auto
     // justify-content: flex-start
-    &Wrapper
-      padding: 0 14px
+    &ProfilPic
+      display: none
     &Title
       text-align: left
     &Span

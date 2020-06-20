@@ -83,13 +83,16 @@ const WelcomeSection = (props) => {
       <div className={style.welcomeTopbar} />
       <img src="/images/preview.jpg" alt="" className={style.hiddenImg}/>
       <div className={style.welcomeWrapper}>
-        <h1 className={style.welcomeTitle}>
-          <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
-          <span className={style.welcomeSpanSubtitle}>{props.subtitle}</span>
-        </h1>
-        <div className={style.welcomeButtons}>
-          <a className={style.welcomeButtonPrimary} href="#projects">{props.buttons.primary.text}</a>
-          <a className={style.welcomeButtonSecondary} href="#contact">{props.buttons.secondary.text}</a>
+        <img className={style.welcomeProfilPic} src="/images/profil.JPG" alt="Mathis Barré profil"/>
+        <div className={style.welcomeRight}>
+          <h1 className={style.welcomeTitle}>
+            <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
+            <span className={style.welcomeSpanSubtitle}>{props.subtitle}</span>
+          </h1>
+          <div className={style.welcomeButtons}>
+            <a className={style.welcomeButtonPrimary} href="#projects">{props.buttons.primary.text}</a>
+            <a className={style.welcomeButtonSecondary} href="#contact">{props.buttons.secondary.text}</a>
+          </div>
         </div>
       </div>
     </BackgroundImage>
