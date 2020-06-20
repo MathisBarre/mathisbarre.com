@@ -62,6 +62,11 @@
     @extend .buttonSecondary
     margin-left: 5px
 
+@supports (-webkit-touch-callout: none)
+  /* CSS specific to iOS devices */ 
+  .welcome
+    background-attachment: scroll
+
 @media screen and ( max-width: 600px )
   .welcome
     min-height: 75vh
