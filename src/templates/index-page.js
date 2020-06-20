@@ -18,7 +18,7 @@ const IndexPageTemplate = (props) => {
 
     ScrollTrigger.defaults({
       start:"top 80%",
-      toggleActions:"play null play null"
+      toggleActions:"play null play null",
     })
 
     // Project animation
@@ -43,12 +43,16 @@ const IndexPageTemplate = (props) => {
 
     // Contact animation
     gsap.from( ".animated-form-elt",
-    {
-      scrollTrigger: ".animated-form-elt",
-      stagger: 0.1,
-      x:-500,
-      opacity:0
-    }
+      {
+        scrollTrigger: {
+          trigger: ".animated-form-elt",
+          start:"top bottom",
+          // markers: true
+        },
+        stagger: 0.1,
+        x:-500,
+        opacity:0
+      }
     )
 
     gsap.from( `.${style.contactLink}`,
