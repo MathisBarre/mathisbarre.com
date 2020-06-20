@@ -79,11 +79,11 @@ const IndexPageTemplate = (props) => {
 
 const WelcomeSection = (props) => {
   return (
-    <BackgroundImage tag={`section`} className={style.welcome} id="welcome" fluid={props.childImageSharp.fluid}>
+    <section className={style.welcome} id="welcome" style={{backgroundImage:"url(/images/john-towner-JgOeRuGD_Y4-unsplash.jpg)"}}>
       <div className={style.welcomeTopbar} />
       <img src="/images/preview.jpg" alt="" className={style.hiddenImg}/>
       <div className={style.welcomeWrapper}>
-        <img className={style.welcomeProfilPic} src="/images/profil.JPG" alt="Mathis Barré profil"/>
+        <img className={style.welcomeProfilPic} src="/images/profil.jpg" alt="Mathis Barré profil"/>
         <div className={style.welcomeRight}>
           <h1 className={style.welcomeTitle}>
             <span className={style.welcomeSpanTitle}>{props.title}</span><br/>
@@ -95,7 +95,7 @@ const WelcomeSection = (props) => {
           </div>
         </div>
       </div>
-    </BackgroundImage>
+    </section>
   )
 }
 
@@ -104,12 +104,16 @@ const ProjectsSection = (props) => {
   return (
     <section className={style.projects} id="projects">
       <h2 className={style.projectsTitle}>{props.title}</h2>
-      {props.projects.map(({node: project}) => (
-        <div key={project.id} className={style.projectWrapper}>
-          <Project {...project} />
-          <hr className={style.projectSeparator}/>
-        </div>
-      ))}
+      {props.projects.map(({node: project}) => {
+        if(project.frontmatter.show) {
+          return (
+            <div key={project.id} className={style.projectWrapper}>
+              <Project {...project} />
+              <hr className={style.projectSeparator}/>
+            </div>
+          )
+        }
+      })}
     </section>
   )
 }
@@ -269,14 +273,8 @@ export const query = graphql`
             }
             tags
             text
+            show
           }
-        }
-      }
-    }
-    welcomeImg: file(relativePath: {eq: "images/john-towner-JgOeRuGD_Y4-unsplash.jpg"}) {
-      childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid
         }
       }
     }
