@@ -117,6 +117,7 @@ const ProjectsSection = (props) => {
             </div>
           )
         }
+        return ""
       })}
     </section>
   )
@@ -153,6 +154,7 @@ const SkillsSection = (props) => {
       </div>
       <div className={style.skillsRow}>
         <img className={style.skillsLogo} src="/images/js.png" alt="logo javascript"/>
+        <img className={style.skillsLogo} src="/images/greensock-gsap-logo.png" alt="logo greensock gsap"/>
         <img className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
         {/* <img className={style.skillsLogo} src="/images/redux.png" alt="logo redux"/> */}
         <img className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
