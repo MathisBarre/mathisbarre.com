@@ -9,7 +9,21 @@ $colorBlack: #000000
 body
   overflow-x: hidden
   max-width: 100vw
-  scroll-behavior: smooth;
+  scrollbar-width: thin 
+  scrollbar-color: $colorPrimaryDark $colorBlack 
+  &::-webkit-scrollbar 
+    width: 11px 
+  &::-webkit-scrollbar-track 
+    background: $colorBlack 
+  &::-webkit-scrollbar-thumb 
+    background-color: $colorPrimaryDark 
+    border-radius: 6px 
+    border: 3px solid $colorBlack 
+
+
+*::selection
+  background-color: $colorPrimary
+  color: white
 
 a
   text-decoration: none
