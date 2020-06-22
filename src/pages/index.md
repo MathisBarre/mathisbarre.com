@@ -35,4 +35,12 @@ contact:
     text: "MathisBarre"
     url: "https://github.com/MathisBarre"
     isShow: true
+  instagram:
+    text: "mathisbarrepro"
+    url: "https://www.instagram.com/mathisbarrepro/"
+    isShow: true
+  malt:
+    text: "mathisbarre"
+    url: "https://www.malt.fr/profile/mathisbarre"
+    isShow: true
 ---

@@ -182,7 +182,9 @@ const ContactSection = (props) => {
           <a className={style.contactLink} rel="noopener noreferrer" href={props.github.url}><img className={style.contactLinkImg} src="/images/github.svg" alt="github"/>{props.github.text}</a>
           <a className={style.contactLink} rel="noopener noreferrer" href={props.twitter.url}><img className={style.contactLinkImg} src="/images/twitter.svg" alt="twitter"/>{props.twitter.text}</a>
           <a className={style.contactLink} rel="noopener noreferrer" href={props.facebook.url}><img className={style.contactLinkImg} src="/images/facebook.svg" alt="facebook"/>{props.facebook.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.instagram.url}><img className={style.contactLinkImg} src="/images/instagram.svg" alt="instagram"/>{props.instagram.text}</a>
           <a className={style.contactLink} rel="noopener noreferrer" href={props.linkedin.url}><img className={style.contactLinkImg} src="/images/linkedin.svg" alt="linkedin"/>{props.linkedin.text}</a>
+          <a className={style.contactLink} rel="noopener noreferrer" href={props.malt.url}>{/*<img className={style.contactLinkImg} src="/images/malt.svg" alt="malt"/>*/}<span style={{fontWeight: "bold"}}>malt.fr : </span> {props.malt.text}</a>
         </div>
       </div>
     </section>
@@ -241,6 +243,16 @@ export const query = graphql`
             isShow
           }
           github {
+            url
+            text
+            isShow
+          }
+          instagram {
+            url
+            text
+            isShow
+          }
+          malt {
             url
             text
             isShow
