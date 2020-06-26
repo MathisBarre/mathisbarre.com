@@ -10,7 +10,8 @@ import style from "./index-page.module.sass"
 // GreenShock
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 //* DOCUMENT *//
 const IndexPageTemplate = (props) => {
@@ -82,6 +83,11 @@ const IndexPageTemplate = (props) => {
 }
 
 const WelcomeSection = (props) => {
+  function jumpTo(id) {
+    console.log(id)
+    gsap.to(window, {duration: 0.5, scrollTo: id});
+  }
+
   return (
     <section className={style.welcome} id="welcome" style={{backgroundImage:"url(/images/john-towner-JgOeRuGD_Y4-unsplash.jpg)"}}>
       <div className={style.welcomeTopbar} />
@@ -94,8 +100,8 @@ const WelcomeSection = (props) => {
             <span className={style.welcomeSpanSubtitle}>{props.subtitle}</span>
           </h1>
           <div className={style.welcomeButtons}>
-            <a className={style.welcomeButtonPrimary} href="#projects">{props.buttons.primary.text}</a>
-            <a className={style.welcomeButtonSecondary} href="#contact">{props.buttons.secondary.text}</a>
+            <a className={style.welcomeButtonPrimary} href="#projects" onClick={(e) => {e.preventDefault(); jumpTo("#projects")}}>{props.buttons.primary.text}</a>
+            <a className={style.welcomeButtonSecondary} href="#contact" onClick={(e) => {e.preventDefault(); jumpTo("#contact")}}>{props.buttons.secondary.text}</a>
           </div>
         </div>
       </div>
