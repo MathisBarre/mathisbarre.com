@@ -163,12 +163,14 @@ const SkillsSection = (props) => {
         <img className={style.skillsLogo} src="/images/greensock-gsap-logo.png" alt="logo greensock gsap"/>
         <img className={style.skillsLogo} src="/images/react.png" alt="logo Reactjs"/>
         <img className={style.skillsLogo} src="/images/gatsby.svg" alt="logo gatsby"/>
+        <img className={style.skillsLogo} src="/images/next.svg" alt="logo nextjs"/>
       </div>
       <div className={style.skillsRow}>
-        <img className={style.skillsLogo} src="/images/next.svg" alt="logo nextjs"/>
         <img className={style.skillsLogo} src="/images/jekyll.png" alt="logo jekyll"/>
         <img className={style.skillsLogo} src="/images/git.png" alt="logo git"/>
         <img className={style.skillsLogo} src="/images/github.png" alt="logo github"/>
+        <img className={style.skillsLogo} src="/images/netlify.svg" alt="logo netlify"/>
+        <img className={style.skillsLogo} src="/images/vercel.png" alt="logo vercel"/>
       </div>
     </BackgroundImage>
   )
