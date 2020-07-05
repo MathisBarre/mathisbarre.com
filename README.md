@@ -1,13 +1,12 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  mathisbarre.com, made with gatsby
-</h1>
+# Portfolio de Mathis Barré
 
-# Credits photos
+Lien vers le site en ligne : [mathisbarre.com](https://mathisbarre.com)
+
+## Stack
+
+HTML5, SASS x CSS modules, GatsbyJs (React, GraphQL), NetlifyCMS, Hebergement Netlify, Git, Github
+
+## Credits photos
 
 Welcome section : Photo by JOHN TOWNER on Unsplash
