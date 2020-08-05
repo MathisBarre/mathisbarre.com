@@ -29,7 +29,7 @@ contact:
     isShow: true
   linkedin:
     text: "Mathis Barré"
-    url: "https://www.linkedin.com/in/mathis-barr%C3%A9-b9ab07176/"
+    url: "https://www.linkedin.com/in/mathis-barre/"
     isShow: true
   github:
     text: "MathisBarre"
