@@ -1,6 +1,6 @@
 ---
 key: project
-order: 20
+order: 998
 title: BeYou
 url: https://beyou-lgbt.fr/
 img:

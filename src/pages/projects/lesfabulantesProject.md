@@ -1,6 +1,6 @@
 ---
 key: project
-order: 1
+order: 999
 title: ISBA éditions
 url: https://isba-editions.netlify.app/
 img:

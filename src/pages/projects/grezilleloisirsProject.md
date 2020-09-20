@@ -1,7 +1,7 @@
 ---
 key: project
 
-order: 30
+order: 1000
 title: Grézillé Loisirs
 url: https://grezilleloisirs.org/
 img:

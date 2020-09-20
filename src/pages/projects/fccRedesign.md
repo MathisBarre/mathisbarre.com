@@ -1,6 +1,6 @@
 ---
 key: project
-order: -1
+order: 995
 title: freeCodeCamp.org/learn redesign
 url: https://youtu.be/32edLkGuAi8
 img:

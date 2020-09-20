@@ -3,7 +3,7 @@ templateKey: "index-page"
 
 welcome:
   title: "Mathis Barré"
-  subtitle: "Développeur web frontend"
+  subtitle: "Développeur web front-end"
   buttons:
     primary:
       text: "Voir mes projets"
@@ -26,7 +26,7 @@ contact:
   facebook:
     text: "facebook.com/mathisbarrepro"
     url: "https://facebook.com/mathisbarrepro"
-    isShow: true
+    isShow: false
   linkedin:
     text: "Mathis Barré"
     url: "https://www.linkedin.com/in/mathis-barre/"
@@ -38,9 +38,9 @@ contact:
   instagram:
     text: "mathisbarrepro"
     url: "https://www.instagram.com/mathisbarrepro/"
-    isShow: true
+    isShow: false
   malt:
     text: "mathisbarre"
     url: "https://www.malt.fr/profile/mathisbarre"
-    isShow: true
+    isShow: false
 ---
