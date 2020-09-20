@@ -7,6 +7,7 @@ img:
   url: "/images/fcc_redesign.png"
   alt: ""
 tags: ["UI/UX redesign"]
-text: Timelapse du redesign du site freeCodeCamp.org/learn. Redesign effectué en 1h30.
+logos: ["adobeXD.svg"]
+text: Ayant passé la plupart de mon apprentissage autodidacte sur freecodecamp.org, j'ai décidé de faire une refonte du design afin d'améliorer l'ui/ux du site original. Pour cette refonte, j'ai principalement utilisé Adobe XD, feathericons.com pour les icones et "Cascadia Code" pour la police d'écriture
 show: true
 ---

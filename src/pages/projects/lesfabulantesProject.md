@@ -7,6 +7,7 @@ img:
   url: "/images/lesfabulantesProject.jpg"
   alt: Screenshot du site de la maison d'édition "les fabulantes"
 tags: ["Design", "Développement", "Gatsbyjs"]
-text: Créée en 2020, la maison d’édition Les Fabulantes s’inscrit dans le paysage de la création et de l’édition dans un esprit d’indépendance et d’engagement. Portée par un cercle d’auteures, cette aventure éditoriale privilégie les textes qui offrent une ligne poétique et esthétique dans une perspective de créativité et de pluralité. 
+logos: ["netlify-logo.svg","xd.png","htmlcss.svg", "js.png", "react-logo.png", "gatsby-logo.svg", "tailwind-css-logo.png"]
+text: Réalisation du design et du développement du site "Isba éditions". Ce site est une vitrine à l'association Isba éditions, une maison d'édition indépendante et sans objectifs lucratifs. Il contient une page d'accueil présentant le projet, un catalogue des livre publiés, un blog et des informations de contact.
 show: true
 ---

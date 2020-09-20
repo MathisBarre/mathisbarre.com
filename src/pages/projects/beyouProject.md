@@ -7,6 +7,7 @@ img:
   url: "/images/beyouProject.jpg"
   alt: Screenshot du site beyou
 tags: ["Design", "Développement", "Gatsbyjs"]
-text: BeYou est une communauté active et bienveillante qui a pour objectif principal le soutien et l'accompagnement des membres. La communauté est principalement active sur la platforme discord.
+logos: ["netlify-logo.svg","xd.png","htmlcss.svg", "js.png", "react-logo.png" , "gatsby-logo.svg", "sass.png"]
+text: Réalisation du design et du développement d'un site de blogging & contact pour la communautée LGBT BeYou. BeYou est une communauté LGBT active et bienveillante qui a pour objectif principal le soutien et de ses membres.
 show: true
 ---

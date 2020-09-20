@@ -135,11 +135,11 @@ const Project = ({ frontmatter: fm }) => {
       <img className={style.projectImg} src={fm.img.url} alt={fm.img.alt} />
       <div className={style.projectContent}>
         <h3 className={style.projectTitle}>{fm.title}</h3>
-        <div className={style.projectTags}>
-          {fm.tags.map((tag)=>(
-            <span key={tag} className={style.projectTag}>{tag}</span>
-          ))}
-        </div>
+          <span className={style.projectTag}>
+            {fm.logos.map((logo) => (
+              <img alt="" src={`/images/${logo}`}></img>
+            ))}
+          </span>
         <p className={style.projectText}>{fm.text}</p>
       </div>
     </a>
@@ -302,6 +302,7 @@ export const query = graphql`
               url
               alt
             }
+            logos
             tags
             text
             show
