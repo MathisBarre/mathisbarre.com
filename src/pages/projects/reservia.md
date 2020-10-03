@@ -4,7 +4,7 @@ order: 994
 title: Reservia
 url: https://mathisbarre.github.io/Reservia/
 img:
-  url: "/images/reservia.png"
+  url: "/images/reservia.jpg"
   alt: ""
 tags: ["Projet d'étude", "Développement", "HTML & CSS"]
 logos: ["html.png", "sass.png"]

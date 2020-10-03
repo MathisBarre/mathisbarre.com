@@ -4,7 +4,7 @@ order: 995
 title: freeCodeCamp.org/learn redesign
 url: https://youtu.be/32edLkGuAi8
 img:
-  url: "/images/fcc_redesign.png"
+  url: "/images/fcc_redesign.jpg"
   alt: ""
 tags: ["UI/UX redesign"]
 logos: ["adobeXD.svg"]
