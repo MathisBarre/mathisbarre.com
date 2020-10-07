@@ -2,7 +2,7 @@
 key: project
 order: 994
 title: Reservia
-url: https://mathisbarre.github.io/Reservia/
+url: https://mathisbarre.github.io/MathisBarre_2_14102020/
 img:
   url: "/images/reservia.jpg"
   alt: ""
