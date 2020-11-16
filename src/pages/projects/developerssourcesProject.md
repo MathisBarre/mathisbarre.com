@@ -2,7 +2,7 @@
 key: project
 order: 997
 title: Developers sources
-url: https://developerssources.now.sh/
+url: https://developerssources.mathisbarre.com/
 img:
   url: "/images/developerssources.jpg"
   alt: ""

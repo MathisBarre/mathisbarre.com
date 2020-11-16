@@ -110,14 +110,13 @@ const WelcomeSection = (props) => {
 }
 
 const ProjectsSection = (props) => {
-  
   return (
     <section className={style.projects} id="projects">
       <h2 className={style.projectsTitle}>{props.title}</h2>
-      {props.projects.map(({node: project}) => {
+      {props.projects.map(({node: project}, index) => {
         if(project.frontmatter.show) {
           return (
-            <div key={project.id} className={style.projectWrapper}>
+            <div key={index} className={style.projectWrapper}>
               <Project {...project} />
               <hr className={style.projectSeparator}/>
             </div>
@@ -136,8 +135,8 @@ const Project = ({ frontmatter: fm }) => {
       <div className={style.projectContent}>
         <h3 className={style.projectTitle}>{fm.title}</h3>
           <span className={style.projectTag}>
-            {fm.logos.map((logo) => (
-              <img alt="" src={`/images/${logo}`}></img>
+            {fm.logos.map((logo, index) => (
+              <img key={index} alt="" src={`/images/${logo}`}></img>
             ))}
           </span>
         <p className={style.projectText}>{fm.text}</p>
@@ -306,6 +305,7 @@ export const query = graphql`
             tags
             text
             show
+            order
           }
         }
       }

@@ -2,7 +2,7 @@
 key: project
 order: 996
 title: Simulateur d'impôts
-url: https://sl8sp.csb.app/
+url: https://calculer-impots.mathisbarre.com/
 img:
   url: "/images/simu_impots.png"
   alt: ""
