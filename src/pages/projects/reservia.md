@@ -2,7 +2,7 @@
 key: project
 order: 994
 title: Reservia
-url: https://reservia.mathisbarre.com
+url: http://reservia.mathisbarre.com
 img:
   url: "/images/reservia.jpg"
   alt: ""
