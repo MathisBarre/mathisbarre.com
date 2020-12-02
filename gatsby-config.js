@@ -23,6 +23,21 @@ module.exports = {
         defer: true
       },
     },
+    {
+      resolve: 'gatsby-plugin-ackee-tracker',
+      options: {
+        // Domatin ID found when adding a domain in the admin panel.
+        domainId: 'c98f2d67-5e0b-4349-ad49-5e76a46270ad',
+        // URL to Server eg: "https://analytics.test.com".
+        server: 'https://analytics.mathisbarre.com/',
+        // Disabled analytic tracking when running localy
+        ignoreLocalhost: true,
+        // Enable or disable the tracking of your own visits (as identified by your login to the Ackee dashboard).
+        ignoreOwnVisits: true,
+        // If enabled it will collect info on OS, BrowserInfo, Device  & ScreenSize
+        detailed: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
